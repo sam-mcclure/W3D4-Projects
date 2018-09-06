@@ -1,0 +1,14 @@
+/* PUT FLUID GRID CODE HERE */
+[class*='col'] {
+  float: left;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.col1 {
+  width: 20%;
+}
+
+.col2 {
+  width: 80%;
+}
