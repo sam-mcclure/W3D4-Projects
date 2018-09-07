@@ -12,6 +12,16 @@
 class Response < ApplicationRecord 
   
   validates :user_id, :answer_id, presence: true
+  validate :not_duplicate_response
+  
+  def not_duplicate_response
+    
+  end
+  
+  def sibling_responses
+    self.question.responses.where.not(responses: {id: self.id})
+  end
+
   
   belongs_to :respondent,
     primary_key: :id, 
@@ -22,5 +32,9 @@ class Response < ApplicationRecord
     primary_key: :id, 
     foreign_key: :answer_id,
     class_name: :AnswerChoice
+    
+  has_one :question,
+    through: :answer_choice,
+    source: :question 
 
 end
