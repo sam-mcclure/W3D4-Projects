@@ -21,6 +21,10 @@ class Response < ApplicationRecord
   def sibling_responses
     self.question.responses.where.not(responses: {id: self.id})
   end
+  
+  def respondent_already_answered?
+    
+  end 
 
   
   belongs_to :respondent,
